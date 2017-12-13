@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8" />
+<title>用户信息设置</title>
+<link rel="shortcut icon" href="/static/images/favicon.ico" />
+<link rel="bookmark" href="/static/images/favicon.ico" />
+<link rel="stylesheet" type="text/css" media="all"
+	href="/static/bootstrap/css/bootstrap.min.css"
+	th:href="@{/static/bootstrap/css/bootstrap.min.css}" />
+<link rel="stylesheet" type="text/css" media="all"
+	href="/static/fileupload/css/fileinput.css"
+	th:href="@{/static/fileupload/css/fileinput.css}" />
+<script th:src="@{/static/jquery/jquery.min.js}"></script>
+<script th:src="@{/static/bootstrap/js/bootstrap.min.js}"></script>
+<script th:src="@{/static/fileupload/js/fileinput.js}"></script>
+<script th:src="@{/static/fileupload/js/locales/zh.js}"></script>
+</head>
+<body>
+ <form enctype="multipart/form-data" method="post" action="/file/upload">
+    图片<input type="file" name="file"/>
+    <input type="submit" value="上传"/>
+    </form>
+<!-- <div class="file-loading">
+    <input id="input-image-1" name="input-image" type="file" accept="image/*"/>
+</div>
+an example modal dialog to display confirmation of the resized image
+<div id="kv-success-modal" class="modal fade">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">Yippee!</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+      </div>
+      <div id="kv-success-box" class="modal-body">
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+$("#input-image-1").fileinput({
+	language: 'zh',
+    uploadUrl: "http://127.0.0.1:8001/file/upload",
+    allowedFileExtensions: ["jpg", "png", "gif"],
+    uploadAsync: false, //默认异步上传
+    showUpload:true, //是否显示上传按钮
+    showRemove :true, //显示移除按钮
+    showPreview :true, //是否显示预览
+    showCaption:true,//是否显示标题
+    browseClass:"btn btn-primary", //按钮样式 
+    dropZoneEnabled: true,//是否显示拖拽区域
+    maxFileCount:1, //表示允许同时上传的最大文件个数
+   enctype:'multipart/form-data',
+    maxImageWidth: 200,
+    resizeImage: true
+}).on('filepreupload', function() {
+    $('#kv-success-box').html('');
+}).on('fileuploaded', function(event, data) {
+    //$('#kv-success-box').append(data.response.link);
+    $('#kv-success-modal').modal('show');
+});
+</script> -->
+</body>
+</html>

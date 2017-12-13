@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>跳转页面</title>
+<meta charset="UTF-8" />
+<base target="_self" />
+</head>
+<body leftmargin="0" topmargin="0">
+	<center>
+		<script>
+			var speed = 1000;
+		    var wait = 3000/speed;//N秒后跳转
+			var pgo = 0;
+			function JumpUrl() {
+				if (pgo == 0){
+					/* 		parent.location = 'javascript:history.go(-1);'; */
+					parent.location = '/login';
+				}
+				pgo = 1;
+			}
+			document
+					.write('<div style="border:1px solid #8EC8F5;width:500px;height:160px;padding:1px;margin-top:10px;background:#F2FAFF;">');
+			document
+					.write('<div style="font-size:14px;color:green;margin-bottom:10px;padding-top:20px;"><b>注册成功</b></div>');
+			document
+					.write('<div style="font-size:12px;color:#2B69A2;margin-bottom:10px;"><b></b>系统将会在<b><span id="jumptme"></span></b>秒后自动跳转。</div>');
+			document
+			        .write('<div><a th:href="@{/login}" style="font-size:12px;color:#004c7d;" target="_parent">如果'+wait+'秒内没有自动跳转，请点击此处</a></div>');
+			document.write("</div>");
+			window.setTimeout('JumpUrl()', wait*speed);
+			function updateinfo() {
+				document.getElementById("jumptme").innerHTML = wait;
+				wait--;
+				var f = wait > 0;
+				if (!f) {
+					parent.location = '/login';
+				} else {
+					window.setTimeout("updateinfo()", speed);
+				}
+			}
+			updateinfo();
+		</script>
+	</center>
+</body>
+</html>

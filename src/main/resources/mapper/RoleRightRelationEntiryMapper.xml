@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.aloe.mapper.RoleRightRelationEntiryMapper" >
+  <resultMap id="BaseResultMap" type="com.aloe.pojo.entity.RoleRightRelationEntity" >
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <result column="role_right_no" property="roleRightNo" jdbcType="VARCHAR" />
+    <result column="right_no" property="rightNo" jdbcType="VARCHAR" />
+    <result column="role_no" property="roleNo" jdbcType="VARCHAR" />
+  </resultMap>
+</mapper>
