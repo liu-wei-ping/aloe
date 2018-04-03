@@ -30,9 +30,10 @@ public class SequenceUtil {
 	}
 
 	public static void main(String[] args) {
-		for (int i = 0; i < 100000000; i++) {
+		for (int i = 0; i < 10000; i++) {
 			String uid = SequenceUtil.generateShortUuid();
 			String uid2 = SequenceUtil.generateShortUuid();
+			System.out.println(uid);
 			if (uid.equals(uid2)) {
 				System.out.println(uid);
 			}

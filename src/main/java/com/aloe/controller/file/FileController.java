@@ -31,8 +31,8 @@ public class FileController extends BaseController {
 	private IFileService iFileService;
 
 	/**
+	 * @param file
 	 * @param request
-	 * @param response
 	 * @return
 	 * @throws UnsupportedEncodingException
 	 */

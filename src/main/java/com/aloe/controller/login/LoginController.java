@@ -6,6 +6,7 @@ package com.aloe.controller.login;
 
 import javax.validation.Valid;
 
+import com.aloe.constants.UrlContstantsConfig;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.AuthenticationException;
 import org.apache.shiro.authc.ExcessiveAttemptsException;
@@ -51,7 +52,7 @@ public class LoginController extends BaseController {
 		}
 		Subject currentUser = SecurityUtils.getSubject();
 		if (currentUser.isAuthenticated()) {
-			return "index";
+			return UrlContstantsConfig.LOGIN_SUCCESS_URL;
 		}
 		return "redirect:/login";
 	}

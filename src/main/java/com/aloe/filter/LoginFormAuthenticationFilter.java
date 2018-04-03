@@ -30,7 +30,7 @@ public class LoginFormAuthenticationFilter extends FormAuthenticationFilter {
 	}
 
 	/**
-	 * 用户密码Key 默认是：password
+	 * 用户密码Key 默认是：loginPwd
 	 *
 	 * @return
 	 * @see org.apache.shiro.web.filter.authc.FormAuthenticationFilter#getPasswordParam()
@@ -60,7 +60,7 @@ public class LoginFormAuthenticationFilter extends FormAuthenticationFilter {
 	}
 
 	/**
-	 * 用户名称Key 默认 是 username
+	 * 用户名称Key 默认 是 userName
 	 *
 	 * @return
 	 * @see org.apache.shiro.web.filter.authc.FormAuthenticationFilter#getUsernameParam()
