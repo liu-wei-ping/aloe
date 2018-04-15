@@ -1,235 +1,242 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-<meta charset="UTF-8" />
-<title>Sugarman</title>
-<link rel="shortcut icon" href="/static/images/favicon.ico" />
-<link rel="bookmark" href="/static/images/favicon.ico" />
-<link rel="stylesheet" type="text/css" media="all"
-	href="/static/bootstrap/css/bootstrap.min.css"
-	th:href="@{/static/bootstrap/css/bootstrap.min.css}" />
-<link rel="stylesheet" type="text/css" media="all"
-	href="/static/bootstrap/css/core.css"
-	th:href="@{/static/bootstrap/css/core.css}" />
+    <meta charset="UTF-8"/>
+    <title>Sugar-man</title>
+    <link rel="shortcut icon" href="/static/images/favicon.ico"/>
+    <link rel="bookmark" href="/static/images/favicon.ico"/>
+    <link rel="stylesheet" type="text/css" media="all"
+          href="/static/bootstrap/css/bootstrap.min.css"
+          th:href="@{/static/bootstrap/css/bootstrap.min.css}"/>
+    <link rel="stylesheet" type="text/css" media="all"
+          href="/static/bootstrap/css/core.css"
+          th:href="@{/static/bootstrap/css/core.css}"/>
 </head>
 <body>
-	<section class="container-fluid cover" name="section-1">
-		<a href="/"><img src="../static/images/logo-c.png"
-			alt="Chipper Logo" height="75" class="logo" /></a>
-		<div class="navlinks text-right ">
+<section class="container-fluid cover" name="section-1">
+    <a href="/"><img src="../static/images/logo-c.png"
+                     alt="Chipper Logo" height="75" class="logo"/></a>
+    <div class="navlinks text-right ">
 
-			<ul class="nav nav-tabs">
-				<li><a  href="/" class="active"><small
-						class="glyphicon glyphicon-sd-video" aria-hidden="true"></small>
-						视 频</a></li>
-				<li><a  href="/"><small
-						class="glyphicon glyphicon-music" aria-hidden="true"></small>
-						音 乐</a></li>
-				<li><a shiro:guest="" href="/login" th:href="@{/login}" ><small
-						class="glyphicon glyphicon-education" aria-hidden="true"></small>
-						登 录</a></li>
-				<li shiro:authenticated="" class="dropdown"><a
-					class=" dropdown-toggle" data-toggle="dropdown"  href="javascript:;"><small
-						class="glyphicon glyphicon-comment" aria-hidden="true"></small>
-						Hello, <span shiro:principal=""> </span> <span class="caret"></span></a>
-					<ul class="dropdown-menu">
-						<li><a th:href="@{/setting/user}">个人中心</a></li>
-						<li><a href="#">帐号设置</a></li>
-						<li class="divider"></li>
-						<li><a th:href="@{/logout}">退 出</a></li>
-					</ul></li>
-			</ul>
-			<!-- 			 <a href="/schools/"><small
-				class="glyphicon glyphicon-apple" aria-hidden="true"></small>
-				Schools</a> <a href="/about/"><small
-				class="glyphicon glyphicon-star" aria-hidden="true"></small> About</a>  -->
-		</div>
-		<div class="container no-padding-on-mobile">
-			<div class="jumbotron">
-				<h1>
-<!-- 					<span class="line-break"></span>  -->
-					<span
-						class="line-break">WHO IS YOU LOVE.</span>
-				</h1>
-				<p></p>
-			</div>
+        <ul class="nav nav-tabs">
+            <li><a href="/" class="active">
+                <small
+                        class="glyphicon glyphicon-sd-video" aria-hidden="true"></small>
+                视 频</a></li>
+            <li><a href="/">
+                <small
+                        class="glyphicon glyphicon-music" aria-hidden="true"></small>
+                音 乐</a></li>
+            <li><a shiro:guest="" href="/login" th:href="@{/login}">
+                <small
+                        class="glyphicon glyphicon-education" aria-hidden="true"></small>
+                登 录</a></li>
+            <li shiro:authenticated="" class="dropdown"><a
+                    class=" dropdown-toggle" data-toggle="dropdown" href="javascript:;">
+                <small
+                        class="glyphicon glyphicon-comment" aria-hidden="true"></small>
+                Hello, <span shiro:principal=""> </span> <span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                    <li><a th:href="@{/setting/user}">个人中心</a></li>
+                    <li><a href="#">帐号设置</a></li>
+                    <li class="divider"></li>
+                    <li><a th:href="@{/logout}">退 出</a></li>
+                </ul>
+            </li>
+        </ul>
+        <!-- 			 <a href="/schools/"><small
+            class="glyphicon glyphicon-apple" aria-hidden="true"></small>
+            Schools</a> <a href="/about/"><small
+            class="glyphicon glyphicon-star" aria-hidden="true"></small> About</a>  -->
+    </div>
+    <div class="container no-padding-on-mobile">
+        <div class="jumbotron">
+            <h1>
+                <!-- 					<span class="line-break"></span>  -->
+                <span
+                        class="line-break">WHO IS YOU LOVE.</span>
+            </h1>
+            <p></p>
+        </div>
 
-			<div class="text-center">
-				<form class="form-inline" action="." method="POST">
-					<div class="form-group">
-						<input type="email" name="email" placeholder="You Love Is..."
-							class="form-control input-lg" required="true" value="" />
+        <div class="text-center">
+            <form class="form-inline" action="." method="POST">
+                <div class="form-group">
+                    <input type="email" name="email" placeholder="You Love Is..."
+                           class="form-control input-lg" required="true" value=""/>
 
-					</div>
-					<button type="submit" class="btn btn-primary btn-lg">Give Me Answer</button>
-				</form>
+                </div>
+                <button type="submit" class="btn btn-primary btn-lg">Give Me Answer</button>
+            </form>
 
-			</div>
-		</div>
-	</section>
-	<section class="container-fluid" name="section-2">
-		<!--<div class="container">-->
-		<h2>More than just a study planner</h2>
-		<div class="row feature-summary">
-			<div class="col-md-5 col-md-offset-1">
-				<img src="../static/images/screenshot.png" alt="Chipper Screenshot"
-					height="640" class="screenshot" />
-			</div>
-			<div class="col-md-5">
-				<div class="feature">
-					<img src="../static/images/pieces.png" alt="Task breakdown icon"
-						height="44" class="feature-icon" />
-					<p>Automatically break down big goals into smaller tasks</p>
-				</div>
-				<div class="feature">
-					<img src="../static/images/suggestions.png" alt="Suggestion icon"
-						height="44" class="feature-icon" />
-					<p>Get suggestions on what to do based on your study habits and
-						performance</p>
-				</div>
-				<div class="feature">
-					<img src="../static/images/dollar.png" alt="Dollar icon"
-						height="44" class="feature-icon" />
-					<p>See how much completing tasks will boost your salary
-						potential</p>
-				</div>
-			</div>
-		</div>
-		<!--</div>-->
-	</section>
+        </div>
+    </div>
+</section>
+<section class="container-fluid" name="section-2">
+    <!--<div class="container">-->
+    <h2>More than just a study planner</h2>
+    <div class="row feature-summary">
+        <div class="col-md-5 col-md-offset-1">
+            <img src="../static/images/screenshot.png" alt="Chipper Screenshot"
+                 height="640" class="screenshot"/>
+        </div>
+        <div class="col-md-5">
+            <div class="feature">
+                <img src="../static/images/pieces.png" alt="Task breakdown icon"
+                     height="44" class="feature-icon"/>
+                <p>Automatically break down big goals into smaller tasks</p>
+            </div>
+            <div class="feature">
+                <img src="../static/images/suggestions.png" alt="Suggestion icon"
+                     height="44" class="feature-icon"/>
+                <p>Get suggestions on what to do based on your study habits and
+                    performance</p>
+            </div>
+            <div class="feature">
+                <img src="../static/images/dollar.png" alt="Dollar icon"
+                     height="44" class="feature-icon"/>
+                <p>See how much completing tasks will boost your salary
+                    potential</p>
+            </div>
+        </div>
+    </div>
+    <!--</div>-->
+</section>
 
-	<section class="container-fluid suggested-tasks" name="section-3">
-		<!--<div class="container">-->
-		<h2>Personalized suggestions to ace your courses</h2>
-		<img src="../static/images/suggested_tasks.png"
-			alt="Person using Chipper" height="400" class="suggested-tasks" />
-		<!--</div>-->
-	</section>
+<section class="container-fluid suggested-tasks" name="section-3">
+    <!--<div class="container">-->
+    <h2>Personalized suggestions to ace your courses</h2>
+    <img src="../static/images/suggested_tasks.png"
+         alt="Person using Chipper" height="400" class="suggested-tasks"/>
+    <!--</div>-->
+</section>
 
-	<section class="container-fluid jr" name="section-4">
-		<div class="container">
-			<h2>See how much staying organized is worth</h2>
-			<div class="row">
+<section class="container-fluid jr" name="section-4">
+    <div class="container">
+        <h2>See how much staying organized is worth</h2>
+        <div class="row">
 
-				<div class="col-md-6 col-md-offset-3">
-					<div class="sample-task sample-task-1">
-						<div class="row">
-							<div class="col-xs-1">
-								<img src="../static/images/checkbox.png" alt="Checkbox"
-									height="28" class="checkbox" />
-							</div>
-							<div class="col-xs-8">
-								<span>Attend next lecture</span>
-							</div>
-							<div class="col-xs-2">
-								<span class="task-value">$500</span>
-							</div>
-						</div>
-					</div>
-				</div>
+            <div class="col-md-6 col-md-offset-3">
+                <div class="sample-task sample-task-1">
+                    <div class="row">
+                        <div class="col-xs-1">
+                            <img src="../static/images/checkbox.png" alt="Checkbox"
+                                 height="28" class="checkbox"/>
+                        </div>
+                        <div class="col-xs-8">
+                            <span>Attend next lecture</span>
+                        </div>
+                        <div class="col-xs-2">
+                            <span class="task-value">$500</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
-				<div class="col-md-6 col-md-offset-3">
-					<div class="sample-task sample-task-2">
-						<div class="row">
-							<div class="col-xs-1">
-								<div>
-									<img src="../static/images/checkbox.png" alt="Checkbox"
-										height="28" class="checkbox" />
-								</div>
-							</div>
-							<div class="col-xs-8">
-								<span>Get a B or higher in a course</span>
-							</div>
-							<div class="col-xs-2">
-								<span class="task-value">$17,000</span>
-							</div>
-						</div>
-					</div>
-				</div>
+            <div class="col-md-6 col-md-offset-3">
+                <div class="sample-task sample-task-2">
+                    <div class="row">
+                        <div class="col-xs-1">
+                            <div>
+                                <img src="../static/images/checkbox.png" alt="Checkbox"
+                                     height="28" class="checkbox"/>
+                            </div>
+                        </div>
+                        <div class="col-xs-8">
+                            <span>Get a B or higher in a course</span>
+                        </div>
+                        <div class="col-xs-2">
+                            <span class="task-value">$17,000</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
-				<div class="col-md-6 col-md-offset-3">
-					<div class="sample-task sample-task-3">
-						<div class="row">
-							<div class="col-xs-1">
-								<img src="../static/images/checkbox.png" alt="Checkbox"
-									height="28" class="checkbox" />
-							</div>
-							<div class="col-xs-8">
-								<span>Finish college</span>
-							</div>
-							<div class="col-xs-2">
-								<span class="task-value">$640,000</span>
-							</div>
-						</div>
-					</div>
-				</div>
+            <div class="col-md-6 col-md-offset-3">
+                <div class="sample-task sample-task-3">
+                    <div class="row">
+                        <div class="col-xs-1">
+                            <img src="../static/images/checkbox.png" alt="Checkbox"
+                                 height="28" class="checkbox"/>
+                        </div>
+                        <div class="col-xs-8">
+                            <span>Finish college</span>
+                        </div>
+                        <div class="col-xs-2">
+                            <span class="task-value">$640,000</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
-			</div>
-			<div class="row progress-tracking">
-				<div class="col-md-4">
-					<img src="../static/images/coins.png" alt="Coins" height="75"
-						class="center-block progress-icon" />
-					<p>Tasks are marked with a dollar value</p>
-				</div>
-				<div class="col-md-4">
-					<img src="../static/images/piggy_bank.png" alt="Piggy bank"
-						height="75" class="center-block progress-icon" />
-					<p>Complete tasks to increase your lifetime earnings</p>
-				</div>
-				<div class="col-md-4">
-					<img src="../static/images/rewards.png"
-						alt="Rewards: car, jet ski, and house" height="75"
-						class="center-block progress-icon" />
-					<p>See what your increased wealth gets you</p>
-				</div>
-			</div>
-		</div>
-	</section>
+        </div>
+        <div class="row progress-tracking">
+            <div class="col-md-4">
+                <img src="../static/images/coins.png" alt="Coins" height="75"
+                     class="center-block progress-icon"/>
+                <p>Tasks are marked with a dollar value</p>
+            </div>
+            <div class="col-md-4">
+                <img src="../static/images/piggy_bank.png" alt="Piggy bank"
+                     height="75" class="center-block progress-icon"/>
+                <p>Complete tasks to increase your lifetime earnings</p>
+            </div>
+            <div class="col-md-4">
+                <img src="../static/images/rewards.png"
+                     alt="Rewards: car, jet ski, and house" height="75"
+                     class="center-block progress-icon"/>
+                <p>See what your increased wealth gets you</p>
+            </div>
+        </div>
+    </div>
+</section>
 
-	<section class="container-fluid cf-team" name="section-5">
-		<!--<div class="container">-->
-		<h2>Built by the team that has helped thousands of students ace
-			medical school.</h2>
-		<p>&ldquo;I owe all of my success to you.&rdquo;</p>
-		<p>&ldquo;Did my very best with help from the very best.&rdquo;</p>
-		<p>&ldquo;Kept me on schedule to accomplish my goals.&rdquo;</p>
-		<p>&ldquo;I was able to meet my goals without any sleepless
-			nights.&rdquo;</p>
-		<p>&ldquo;I always felt so accomplished when I was able to check
-			off a scheduled task.&rdquo;</p>
-		<!--</div>-->
-	</section>
+<section class="container-fluid cf-team" name="section-5">
+    <!--<div class="container">-->
+    <h2>Built by the team that has helped thousands of students ace
+        medical school.</h2>
+    <p>&ldquo;I owe all of my success to you.&rdquo;</p>
+    <p>&ldquo;Did my very best with help from the very best.&rdquo;</p>
+    <p>&ldquo;Kept me on schedule to accomplish my goals.&rdquo;</p>
+    <p>&ldquo;I was able to meet my goals without any sleepless
+        nights.&rdquo;</p>
+    <p>&ldquo;I always felt so accomplished when I was able to check
+        off a scheduled task.&rdquo;</p>
+    <!--</div>-->
+</section>
 
-	<section class="container-fluid" name="section-6">
-		<!--<div class="container">-->
-		<h2>Sign up today to reserve your place for early access to
-			Chipper.</h2>
+<section class="container-fluid" name="section-6">
+    <!--<div class="container">-->
+    <h2>Sign up today to reserve your place for early access to
+        Chipper.</h2>
 
-		<div class="text-center">
-			<form class="form-inline" action="." method="POST">
+    <div class="text-center">
+        <form class="form-inline" action="." method="POST">
 
-				<div class="form-group">
-					<input type="email" name="email" placeholder="Enter email address"
-						class="form-control input-lg" required="true" value="" />
+            <div class="form-group">
+                <input type="email" name="email" placeholder="Enter email address"
+                       class="form-control input-lg" required="true" value=""/>
 
-				</div>
-				<button type="submit" class="btn btn-info btn-lg">Get early
-					access</button>
-			</form>
-		</div>
+            </div>
+            <button type="submit" class="btn btn-info btn-lg">Get early
+                access
+            </button>
+        </form>
+    </div>
 
-		<!--</div>-->
-	</section>
-	<footer class="container-fluid footer" name="section-7">
-		<!--<div class="container">-->
-		<p>
-			Let's get it done. &copy; 2017 Cram Fighter Inc. <a href="/tos/"
-				target="_blank">Terms of Service</a> &middot; <a href="/privacy/"
-				target="_blank">Privacy Policy</a>
-		</p>
-		<!--</div>-->
-	</footer>
-	<script th:src="@{/static/jquery/jquery.min.js}"></script>
-	<script th:src="@{/static/bootstrap/js/bootstrap.min.js}"></script>
+    <!--</div>-->
+</section>
+<footer class="container-fluid footer" name="section-7">
+    <!--<div class="container">-->
+    <p>
+        Let's get it done. &copy; 2017 Cram Fighter Inc. <a href="/tos/"
+                                                            target="_blank">Terms of Service</a> &middot; <a
+            href="/privacy/"
+            target="_blank">Privacy Policy</a>
+    </p>
+    <!--</div>-->
+</footer>
+<script th:src="@{/static/jquery/jquery.min.js}"></script>
+<script th:src="@{/static/bootstrap/js/bootstrap.min.js}"></script>
 </body>
 </html>

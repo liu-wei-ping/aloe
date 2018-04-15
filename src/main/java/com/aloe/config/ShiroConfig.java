@@ -176,8 +176,8 @@ public class ShiroConfig {
 		// anon:它对应的过滤器里面是空的,什么都没做
 		// authc：该过滤器下的页面必须验证后才能访问。它是Shiro内置的一个拦截器org.apache.shiro.web.filter.authc.FormAuthenticationFilter
 		Map<String, String> filterChainDefinitionMap = UrlContstantsConfig.ANON_MAP;
-		filterChainDefinitionMap.put(UrlContstantsConfig.LOGIN_CHECK_URL, "login_authc");// 登录请求
-		filterChainDefinitionMap.put("/**", "authc");
+/*		filterChainDefinitionMap.put(UrlContstantsConfig.LOGIN_CHECK_URL, "login_authc");// 登录请求
+		filterChainDefinitionMap.put("/**", "authc");*/
 		shiroFilterFactoryBean.setFilterChainDefinitionMap(filterChainDefinitionMap);
 
 		return shiroFilterFactoryBean;

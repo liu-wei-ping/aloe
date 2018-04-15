@@ -1,18 +1,16 @@
 package com.aloe.service;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.UUID;
-
+import com.aloe.utils.EncryptionUtil;
+import com.aloe.utils.HttpRequestUtil;
 import org.apache.commons.lang3.exception.ExceptionUtils;
 import org.apache.shiro.crypto.SecureRandomNumberGenerator;
 import org.dozer.DozerBeanMapper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import com.aloe.utils.EncryptionUtil;
-import com.aloe.utils.HttpRequestUtil;
-import com.aloe.utils.RandomNumberGeneratorUtil;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.UUID;
 
 /**
  * @author liu_wp
@@ -82,14 +80,6 @@ public class BaseService extends DozerBeanMapper {
 		return ExceptionUtils.getMessage(ex);
 	}
 
-	/**
-	 * 唯一用户编码
-	 *
-	 * @return
-	 */
-	protected String getUserNoUnique() {
-		return RandomNumberGeneratorUtil.generateNumber2();
-	}
 
 	/**
 	 * uuid 主键Id

@@ -4,13 +4,13 @@
  */
 package com.aloe.controller.login;
 
+import com.aloe.constants.UrlContstantsConfig;
+import com.aloe.controller.BaseController;
 import org.apache.shiro.SecurityUtils;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-
-import com.aloe.controller.BaseController;
 
 /**
  * @author lwp 2017年8月6日
@@ -23,11 +23,11 @@ public class IndexController extends BaseController {
 	 * @param model
 	 * @return
 	 */
-	@RequestMapping(value = "/", method = RequestMethod.GET)
+	@RequestMapping(value = UrlContstantsConfig.DEFAULT_VISIT_URL, method = RequestMethod.GET)
 	public String defaultIndex(Model model) {
 		String userName = String.valueOf(SecurityUtils.getSubject().getPrincipal());
 		model.addAttribute("username", userName);
-		return "index";
+		return UrlContstantsConfig.DEFAULT_VISIT_PAGE;
 	}
 
 	/**
@@ -37,10 +37,10 @@ public class IndexController extends BaseController {
 	 * @return
 	 */
 	/* @RequiresRoles("ADMIN") */
-	@RequestMapping(value = "/index", method = RequestMethod.GET)
+	@RequestMapping(value = UrlContstantsConfig.LOGIN_SUCCESS_URL, method = RequestMethod.GET)
 	public String index(Model model) {
 		String username = String.valueOf(SecurityUtils.getSubject().getPrincipal());
 		model.addAttribute("username", username);
-		return "index";
+		return UrlContstantsConfig.LOGIN_SUCCESS_PAGE;
 	}
 }
