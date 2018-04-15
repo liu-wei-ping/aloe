@@ -100,4 +100,10 @@ public class UserServiceImpl extends BaseService implements IUserService {
         return null;
     }
 
+    @Override
+    public List<UserInfoVo> finidAllUser() {
+        List<UserInfoEntity> userInfoEntities = userInfoEntiryMapper.selectAll();
+        return mapToList(userInfoEntities, UserInfoVo.class);
+    }
+
 }

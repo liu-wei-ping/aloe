@@ -31,7 +31,10 @@ public class UrlContstantsConfig {
     public static final String DEFAULT_STATIC_URL = "/static/**";
     // 未对其授权的资源时路径
     public static final String UNAUTHORIZED_URL = "/pages/403";
+    //favicon
     public static final String FAVICON_ICO_URL = "/favicon.ico";
+    //测试类
+    public static final String DEMO_TEST_URL = "/hello/**";
     //系统验证访问路径
     public static final Map<String, String> ANON_MAP = new LinkedHashMap<String, String>();
 
@@ -45,6 +48,7 @@ public class UrlContstantsConfig {
         ANON_MAP.put(REGISTER_URL, "anon");
         ANON_MAP.put(REGISTER_CHECK_URL, "anon");
         ANON_MAP.put(FAVICON_ICO_URL, "anon");
+        ANON_MAP.put(DEMO_TEST_URL, "anon");
         //登录请求
 //        ANON_MAP.put(UrlContstantsConfig.LOGIN_CHECK_URL, "login_authc");
         //默认都要验证

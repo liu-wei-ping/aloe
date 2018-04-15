@@ -6,11 +6,17 @@ import com.aloe.controller.BaseController;
 import com.aloe.pojo.vo.ResponseResultVo;
 import com.aloe.pojo.vo.UserInfoVo;
 import com.aloe.service.user.IUserService;
+import com.aloe.utils.JSONParserUtil;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.servlet.ModelAndView;
+import redis.clients.jedis.JedisCluster;
+
+import java.util.List;
 
 /**
  * @author liu_wp
@@ -22,6 +28,7 @@ public class RegistryController extends BaseController {
 
     @Autowired
     private IUserService iUserService;
+
 
     /**
      * 注册页面
@@ -49,4 +56,16 @@ public class RegistryController extends BaseController {
         model.addAllAttributes(ResponseResultVo.returnPgeResultMap(result));
         return UrlContstantsConfig.REGISTER_PAGE;
     }
+
+    @RequestMapping(value = UrlContstantsConfig.REGISTER_CHECK_URL, method = RequestMethod.GET)
+    @Cacheable(value = "redis-register")
+    public ModelAndView findUser() {
+        List<UserInfoVo> userInfoVos = iUserService.finidAllUser();
+        ModelAndView modelAndView = new ModelAndView();
+        modelAndView.setViewName("redis");
+        modelAndView.addObject("register", userInfoVos);
+        return modelAndView;
+    }
+
+
 }
