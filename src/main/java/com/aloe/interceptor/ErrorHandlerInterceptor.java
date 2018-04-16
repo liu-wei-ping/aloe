@@ -7,11 +7,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * @author liu_wp
- * @date 2017年10月10日
- * @see
+ * 异常
  */
-public class SpringBootInterceptor extends HandlerInterceptorAdapter {
+public class ErrorHandlerInterceptor extends HandlerInterceptorAdapter {
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
         return super.preHandle(request, response, handler);
@@ -19,6 +17,9 @@ public class SpringBootInterceptor extends HandlerInterceptorAdapter {
 
     @Override
     public void postHandle(HttpServletRequest request, HttpServletResponse response, Object handler, ModelAndView modelAndView) throws Exception {
+        if (response.getStatus() == HttpServletResponse.SC_INTERNAL_SERVER_ERROR) {
+
+        }
         super.postHandle(request, response, handler, modelAndView);
     }
 }

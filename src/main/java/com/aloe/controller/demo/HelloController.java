@@ -64,7 +64,7 @@ public class HelloController {
             if (booleanFuture1.isDone() && booleanFuture1.isDone() && booleanFuture2.isDone()) {
                 break;
             } else {
-//                System.out.println("任务运行中。。。");
+               System.out.println("任务运行中。。。");
             }
         }
         long time = (System.currentTimeMillis() - start) / 1000;
