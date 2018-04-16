@@ -4,12 +4,15 @@
 package com.aloe.controller.demo;
 
 import com.aloe.service.demo.IDemoService;
+import com.aloe.tasks.AsyncDemoTask;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 import redis.clients.jedis.JedisCluster;
+
+import java.util.concurrent.Future;
 
 @RestController
 @RequestMapping("/hello")
@@ -20,6 +23,8 @@ public class HelloController {
 
     @Autowired
     private IDemoService demo;
+    @Autowired
+    private AsyncDemoTask asyncDemoTask;
 
 
     @PostMapping("/getShopInfoByCompIdAndShopInfo")
@@ -47,6 +52,24 @@ public class HelloController {
     @RequestMapping("/redis")
     public String findRedis() {
         return demo.findRedis();
+    }
+
+    @RequestMapping("/async")
+    public String asyncTask() throws Exception {
+        long start = System.currentTimeMillis();
+        Future<Boolean> booleanFuture1 = asyncDemoTask.async1();
+        Future<Boolean> booleanFuture2 = asyncDemoTask.async2();
+        Future<Boolean> booleanFuture3 = asyncDemoTask.async3();
+        while (true) {
+            if (booleanFuture1.isDone() && booleanFuture1.isDone() && booleanFuture2.isDone()) {
+                break;
+            } else {
+//                System.out.println("任务运行中。。。");
+            }
+        }
+        long time = (System.currentTimeMillis() - start) / 1000;
+        System.out.println("异步任务耗时：" + time);
+        return "异步任务耗时：" + time;
     }
 
     @RequestMapping("/say")
