@@ -151,13 +151,13 @@
             <version>5.5.1</version>
         </dependency>
         <!--MG依赖 -->
-        <dependency>
-            <groupId>org.mybatis.generator</groupId>
-            <artifactId>mybatis-generator-core</artifactId>
-            <version>${MBG.version}</version>
-            <scope>compile</scope>
-            <optional>true</optional>
-        </dependency>
+        <!--<dependency>-->
+            <!--<groupId>org.mybatis.generator</groupId>-->
+            <!--<artifactId>mybatis-generator-core</artifactId>-->
+            <!--<version>${MBG.version}</version>-->
+            <!--<scope>compile</scope>-->
+            <!--<optional>true</optional>-->
+        <!--</dependency>-->
         <!-- json -->
         <dependency>
             <groupId>com.alibaba</groupId>
