@@ -16,18 +16,18 @@ public class BaseEntity {
 	 * 创建时间
 	 */
 	@Column(name = "create_time", nullable = false)
-	protected int createTime;
+	protected Integer createTime;
 	/**
 	 * 状态【0：启用，1：停用】
 	 */
 	@Column(name = "status", nullable = false)
-	protected int status;
+	protected Integer status;
 	/**
 	 * 主键id
 	 */
 	@Id
 	@Column(name = "id")
-	@GeneratedValue(generator = "UUID")
+//	@GeneratedValue(generator = "UUID")
 	protected String id;
 	/**
 	 * 更新时间
@@ -35,7 +35,7 @@ public class BaseEntity {
 	@Column(name = "update_time", nullable = false)
 	protected Timestamp updateTime;
 
-	public int getCreateTime() {
+	public Integer getCreateTime() {
 		return createTime;
 	}
 
@@ -43,7 +43,7 @@ public class BaseEntity {
 		return id;
 	}
 
-	public int getStatus() {
+	public Integer getStatus() {
 		return status;
 	}
 
@@ -51,7 +51,7 @@ public class BaseEntity {
 		return updateTime;
 	}
 
-	public void setCreateTime(int createTime) {
+	public void setCreateTime(Integer createTime) {
 		this.createTime = createTime;
 	}
 
@@ -59,7 +59,7 @@ public class BaseEntity {
 		this.id = id;
 	}
 
-	public void setStatus(int status) {
+	public void setStatus(Integer status) {
 		this.status = status;
 	}
 

@@ -73,7 +73,7 @@ public class BaseService extends DozerBeanMapper {
 	/**
 	 * 获取异常的堆栈信息
 	 *
-	 * @param t
+	 * @param ex
 	 * @return
 	 */
 	protected String getStackTrace(Throwable ex) {

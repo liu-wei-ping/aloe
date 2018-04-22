@@ -3,13 +3,13 @@
  */
 package com.aloe.controller.demo;
 
+import com.aloe.pojo.vo.ResponseResultVo;
 import com.aloe.service.demo.IDemoService;
+import com.aloe.service.init.IInitService;
 import com.aloe.tasks.AsyncDemoTask;
+import org.apache.shiro.authz.annotation.RequiresRoles;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import redis.clients.jedis.JedisCluster;
 
 import java.util.concurrent.Future;
@@ -25,6 +25,8 @@ public class HelloController {
     private IDemoService demo;
     @Autowired
     private AsyncDemoTask asyncDemoTask;
+    @Autowired
+    private IInitService initService;
 
 
     @PostMapping("/getShopInfoByCompIdAndShopInfo")
@@ -64,7 +66,7 @@ public class HelloController {
             if (booleanFuture1.isDone() && booleanFuture1.isDone() && booleanFuture2.isDone()) {
                 break;
             } else {
-               System.out.println("任务运行中。。。");
+                System.out.println("任务运行中。。。");
             }
         }
         long time = (System.currentTimeMillis() - start) / 1000;
@@ -75,5 +77,17 @@ public class HelloController {
     @RequestMapping("/say")
     public String say(final String user) {
         return "hello " + user;
+    }
+
+    /**
+     * 初始化系统
+     *
+     * @return
+     */
+    @GetMapping("/init")
+//    @RequiresRoles("admin")
+    public ResponseResultVo initSystemCache() {
+        String s = initService.initUserToRedis();
+        return ResponseResultVo.generateSuccessObject(s);
     }
 }

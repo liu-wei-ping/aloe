@@ -1,4 +1,4 @@
-package com.aloe.aop;
+package com.aloe.exception;
 
 import com.aloe.constants.UrlContstantsConfig;
 import com.aloe.pojo.vo.ExceptionVo;

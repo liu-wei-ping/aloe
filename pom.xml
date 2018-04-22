@@ -97,7 +97,7 @@
         <dependency>
             <groupId>tk.mybatis</groupId>
             <artifactId>mapper-spring-boot-starter</artifactId>
-            <version>1.1.1</version>
+            <version>2.0.1</version>
         </dependency>
         <!-- pagehelper -->
         <dependency>
@@ -152,11 +152,11 @@
         </dependency>
         <!--MG依赖 -->
         <!--<dependency>-->
-            <!--<groupId>org.mybatis.generator</groupId>-->
-            <!--<artifactId>mybatis-generator-core</artifactId>-->
-            <!--<version>${MBG.version}</version>-->
-            <!--<scope>compile</scope>-->
-            <!--<optional>true</optional>-->
+        <!--<groupId>org.mybatis.generator</groupId>-->
+        <!--<artifactId>mybatis-generator-core</artifactId>-->
+        <!--<version>${MBG.version}</version>-->
+        <!--<scope>compile</scope>-->
+        <!--<optional>true</optional>-->
         <!--</dependency>-->
         <!-- json -->
         <dependency>
@@ -186,69 +186,29 @@
             <artifactId>json-smart</artifactId>
             <version>2.3</version>
         </dependency>
+        <!--静态资源版本控制-->
+        <!--<dependency>-->
+            <!--<groupId>org.webjars</groupId>-->
+            <!--<artifactId>jquery</artifactId>-->
+            <!--<version>3.3.1-1</version>-->
+        <!--</dependency>-->
+        <!--<dependency>-->
+            <!--<groupId>org.webjars</groupId>-->
+            <!--<artifactId>bootstrap</artifactId>-->
+            <!--<version>4.1.0</version>-->
+        <!--</dependency>-->
+        <!--<dependency>-->
+            <!--<groupId>org.webjars</groupId>-->
+            <!--<artifactId>webjars-locator</artifactId>-->
+        <!--</dependency>-->
+
     </dependencies>
 
     <build>
         <!--插件 -->
-        <finalName>${project.artifactId}-${git.commit.id.abbrev}-${git.branch.something}-${maven.build.timestamp}</finalName>
+        <!--<finalName>${project.artifactId}-${git.commit.id.abbrev}-${git.branch.something}-${maven.build.timestamp}</finalName>-->
         <plugins>
-            <plugin>
-                <groupId>pl.project13.maven</groupId>
-                <artifactId>git-commit-id-plugin</artifactId>
-                <version>2.2.4</version>
-                <executions>
-                    <execution>
-                        <id>get-the-git-infos</id>
-                        <goals>
-                            <goal>revision</goal>
-                        </goals>
-                    </execution>
-                </executions>
-                <configuration>
-                    <replacementProperties>
-                        <!-- example: apply replacement only to the specific property git.branch
-                            and replace '/' with '-' -->
-                        <replacementProperty>
-                            <property>git.branch</property>
-                            <propertyOutputSuffix>something</propertyOutputSuffix>
-                            <token>^([^\/]*)\/([^\/]*)$</token>
-                            <value>$1-$2</value>
-                            <regex>true</regex>
-                            <transformationRules>
-                                <transformationRule>
-                                    <apply>BEFORE</apply>
-                                    <action>UPPER_CASE</action>
-                                </transformationRule>
-                                <transformationRule>
-                                    <apply>AFTER</apply>
-                                    <action>LOWER_CASE</action>
-                                </transformationRule>
-                            </transformationRules>
-                        </replacementProperty>
-                    </replacementProperties>
-                    <!-- 使properties扩展到整个maven bulid 周期 Ref: https://github.com/ktoso/maven-git-commit-id-plugin/issues/280 -->
-                    <injectAllReactorProjects>true</injectAllReactorProjects>
-                    <dateFormat>yyyy.MM.dd HH:mm:ss</dateFormat>
-                    <verbose>true</verbose>
-                    <!-- 是否生 git.properties 属性文件 -->
-                    <generateGitPropertiesFile>true</generateGitPropertiesFile>
-                    <!--git描述配置,可选;由JGit提供实现; -->
-                    <gitDescribe>
-                        <!--是否生成描述属性 -->
-                        <skip>false</skip>
-                        <!--提交操作未发现tag时,仅打印提交操作ID, -->
-                        <always>false</always>
-                        <!--提交操作ID显式字符长度,最大值为:40;默认值:7; 0代表特殊意义;后面有解释; -->
-                        <abbrev>7</abbrev>
-                        <!--构建触发时,代码有修改时(即"dirty state"),添加指定后缀;默认值:""; -->
-                        <dirty>-dirty</dirty>
-                        <!--always print using the "tag-commits_from_tag-g_commit_id-maybe_dirty"
-                            format, even if "on" a tag. The distance will always be 0 if you're "on"
-                            the tag. -->
-                        <forceLongFormat>false</forceLongFormat>
-                    </gitDescribe>
-                </configuration>
-            </plugin>
+
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>

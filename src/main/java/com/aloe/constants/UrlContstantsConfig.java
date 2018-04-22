@@ -29,6 +29,7 @@ public class UrlContstantsConfig {
     public static final String REGISTER_CHECK_URL = "/user-register";
     // 默认静态资源路径
     public static final String DEFAULT_STATIC_URL = "/static/**";
+    public static final String DEFAULT_WEBJARS_URL = "/webjars/**";
     // 未对其授权的资源时路径
     public static final String UNAUTHORIZED_URL = "/pages/403";
     //favicon
@@ -40,8 +41,9 @@ public class UrlContstantsConfig {
 
     static {
         //无需验证路径
-        ANON_MAP.put(LOGOUT_URL, "anon");
         ANON_MAP.put(DEFAULT_STATIC_URL, "anon");
+        ANON_MAP.put(DEFAULT_WEBJARS_URL, "anon");
+        ANON_MAP.put(LOGOUT_URL, "anon");
         ANON_MAP.put(DEFAULT_VISIT_URL, "anon");
         ANON_MAP.put(LOGIN_URL, "anon");
         ANON_MAP.put(LOGIN_CHECK_URL, "anon");

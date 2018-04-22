@@ -11,6 +11,7 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.scheduling.annotation.EnableAsync;
 import org.springframework.scheduling.annotation.EnableScheduling;
+import tk.mybatis.spring.annotation.MapperScan;
 
 /**
  * @author liu_wp
@@ -19,10 +20,11 @@ import org.springframework.scheduling.annotation.EnableScheduling;
  */
 @Configuration
 @ComponentScan
-@EnableAutoConfiguration
+@MapperScan(basePackages ={"com.aloe.mapper"} )
 @EnableCaching
 @EnableScheduling
 @EnableAsync
+@EnableAutoConfiguration
 public class AloeApplication {
 
 	/**

@@ -14,6 +14,7 @@
 </head>
 <body>
 <section class="container-fluid cover" name="section-1">
+    <div id="nowTime" style="color: white"></div>
     <a href="/"><img src="../static/images/logo-c.png"
                      alt="Chipper Logo" height="75" class="logo"/></a>
     <div class="navlinks text-right ">
@@ -238,5 +239,39 @@
 </footer>
 <script th:src="@{/static/jquery/jquery.min.js}"></script>
 <script th:src="@{/static/bootstrap/js/bootstrap.min.js}"></script>
+<script type="text/javascript">
+    //    (function () {
+    window.onload = function () {
+        var timer = "";
+        var str = "";
+        var oldTime = ""
+//        clearInterval(timer);
+//        timer = setInterval(timeFun, 1000);
+        timeFun();
+
+        function getNowTime() {
+            var nowDate = new Date();
+            var hours = nowDate.getHours();
+            var minutes = nowDate.getMinutes();
+            var seconds = nowDate.getSeconds();
+            str = nowDate.getFullYear() + "/" + toTwo(nowDate.getMonth() + 1) + "/" + toTwo(nowDate.getDate()) + " " + toTwo(hours) + ":" + toTwo(minutes) + ":" + toTwo(seconds);
+            return str;
+        }
+
+        //一个奇葩的问题小于号不能判断
+        function toTwo(a) {
+            return a >= 10 ? '' + a : '0' + a;
+        }
+
+        function timeFun() {
+            oldTime = getNowTime();
+            $("#nowTime").html(oldTime);
+            timer = setTimeout(timeFun, 1000);
+        }
+
+    }
+    //    })
+
+</script>
 </body>
 </html>
