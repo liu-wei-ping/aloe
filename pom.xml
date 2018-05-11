@@ -151,6 +151,11 @@
 			<scope>compile</scope>
 			<optional>true</optional>
 		</dependency>
+		<dependency>
+			<groupId>com.alibaba</groupId>
+			<artifactId>easyexcel</artifactId>
+			<version>1.0.1</version>
+		</dependency>
 		<!-- json -->
 <!-- 		<dependency>
 			<groupId>com.alibaba</groupId>
