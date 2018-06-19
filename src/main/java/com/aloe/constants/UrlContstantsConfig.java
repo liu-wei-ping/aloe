@@ -36,6 +36,8 @@ public class UrlContstantsConfig {
     public static final String FAVICON_ICO_URL = "/favicon.ico";
     //测试类
     public static final String DEMO_TEST_URL = "/hello/**";
+    //wechat api url
+    public static final String WECHAT_API_URL = "/wechat/**";
     //系统验证访问路径
     public static final Map<String, String> ANON_MAP = new LinkedHashMap<String, String>();
 
@@ -51,6 +53,7 @@ public class UrlContstantsConfig {
         ANON_MAP.put(REGISTER_CHECK_URL, "anon");
         ANON_MAP.put(FAVICON_ICO_URL, "anon");
         ANON_MAP.put(DEMO_TEST_URL, "anon");
+        ANON_MAP.put(WECHAT_API_URL, "anon");
         //登录请求
 //        ANON_MAP.put(UrlContstantsConfig.LOGIN_CHECK_URL, "login_authc");
         //默认都要验证
