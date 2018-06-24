@@ -4,7 +4,7 @@
  */
 package com.aloe.controller.login;
 
-import com.aloe.constants.UrlContstantsConfig;
+import com.aloe.constants.UrlConstantsConfig;
 import com.aloe.controller.BaseController;
 import com.aloe.pojo.vo.UserInfoVo;
 import com.aloe.utils.HttpRequestUtil;
@@ -59,10 +59,10 @@ public class LoginController extends BaseController {
      * @param redirectAttributes
      * @return
      */
-    @RequestMapping(value = UrlContstantsConfig.LOGIN_CHECK_URL, method = RequestMethod.POST)
+    @RequestMapping(value = UrlConstantsConfig.LOGIN_CHECK_URL, method = RequestMethod.POST)
     public String login(@Valid UserInfoVo user, BindingResult bindingResult, RedirectAttributes redirectAttributes) {
         if (bindingResult.hasErrors()) {
-            return UrlContstantsConfig.LOGIN_URL;
+            return UrlConstantsConfig.LOGIN_URL;
         }
         boolean loginFlag = false;
         String username = user.getUserName();
@@ -99,10 +99,10 @@ public class LoginController extends BaseController {
         if (loginFlag && currentUser.isAuthenticated()) {
             logger.info("用户[" + username + "]登录认证通过(这里可以进行一些认证通过后的一些系统参数初始化操作)");
             // token.setRememberMe(true);
-            return "redirect:" + UrlContstantsConfig.LOGIN_SUCCESS_URL;
+            return "redirect:" + UrlConstantsConfig.LOGIN_SUCCESS_URL;
         } else {
             token.clear();
-            return "redirect:" + UrlContstantsConfig.LOGIN_URL;
+            return "redirect:" + UrlConstantsConfig.LOGIN_URL;
         }
     }
 
@@ -112,10 +112,10 @@ public class LoginController extends BaseController {
      * @param model
      * @return
      */
-    @RequestMapping(value = UrlContstantsConfig.LOGIN_URL, method = RequestMethod.GET)
+    @RequestMapping(value = UrlConstantsConfig.LOGIN_URL, method = RequestMethod.GET)
     public String loginForm(Model model) {
         model.addAttribute("user", new UserInfoVo());
-        return UrlContstantsConfig.LOGIN_URL;
+        return UrlConstantsConfig.LOGIN_URL;
     }
 
     /**
@@ -124,12 +124,12 @@ public class LoginController extends BaseController {
      * @param redirectAttributes
      * @return
      */
-    @RequestMapping(value = UrlContstantsConfig.LOGOUT_URL, method = RequestMethod.GET)
+    @RequestMapping(value = UrlConstantsConfig.LOGOUT_URL, method = RequestMethod.GET)
     public String logout(RedirectAttributes redirectAttributes) {
         // 使用权限管理工具进行用户的退出，跳出登录，给出提示信息
         SecurityUtils.getSubject().logout();
         redirectAttributes.addFlashAttribute("message", "您已安全退出");
-        return "redirect:" + UrlContstantsConfig.LOGIN_URL;
+        return "redirect:" + UrlConstantsConfig.LOGIN_URL;
     }
 
     /**
@@ -137,9 +137,9 @@ public class LoginController extends BaseController {
      *
      * @return
      */
-    @RequestMapping(UrlContstantsConfig.UNAUTHORIZED_URL)
+    @RequestMapping(UrlConstantsConfig.UNAUTHORIZED_URL)
     public String unauthorizedRole() {
         logger.info("------没有权限-------");
-        return UrlContstantsConfig.UNAUTHORIZED_ROLE_PAGE;
+        return UrlConstantsConfig.UNAUTHORIZED_ROLE_PAGE;
     }
 }

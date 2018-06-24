@@ -1,5 +1,6 @@
 package com.aloe.utils;
 
+import com.alibaba.druid.util.DruidWebUtils;
 import com.aloe.constants.SysConstantsConfig;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.web.context.request.RequestContextHolder;
@@ -144,6 +145,11 @@ public class HttpRequestUtil {
     public static String getRemoteIp() {
         HttpServletRequest request = getHttpServletRequest();
         return getRemoteIp(request);
+    }
+
+    public static String getIp() {
+        HttpServletRequest request = getHttpServletRequest();
+        return DruidWebUtils.getRemoteAddr(request);
     }
 
     /**

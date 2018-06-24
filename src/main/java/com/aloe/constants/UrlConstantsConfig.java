@@ -8,7 +8,7 @@ import java.util.Map;
  * @date 2017年10月14日
  * @see
  */
-public class UrlContstantsConfig {
+public class UrlConstantsConfig {
 
     /******************************************************************************
      * 系统页面请求路径配置
@@ -38,6 +38,8 @@ public class UrlContstantsConfig {
     public static final String DEMO_TEST_URL = "/hello/**";
     //wechat api url
     public static final String WECHAT_API_URL = "/wechat/**";
+    //druid 监控
+    public static final String DRUID_MONITOR_URL = "/druid/**";
     //系统验证访问路径
     public static final Map<String, String> ANON_MAP = new LinkedHashMap<String, String>();
 
@@ -53,9 +55,10 @@ public class UrlContstantsConfig {
         ANON_MAP.put(REGISTER_CHECK_URL, "anon");
         ANON_MAP.put(FAVICON_ICO_URL, "anon");
         ANON_MAP.put(DEMO_TEST_URL, "anon");
+        ANON_MAP.put(DRUID_MONITOR_URL, "anon");
         ANON_MAP.put(WECHAT_API_URL, "anon");
         //登录请求
-//        ANON_MAP.put(UrlContstantsConfig.LOGIN_CHECK_URL, "login_authc");
+//        ANON_MAP.put(UrlConstantsConfig.LOGIN_CHECK_URL, "login_authc");
         //默认都要验证
         ANON_MAP.put("/**", "authc");
 

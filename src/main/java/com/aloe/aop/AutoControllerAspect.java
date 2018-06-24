@@ -3,6 +3,7 @@ package com.aloe.aop;
 import java.util.Arrays;
 import java.util.List;
 
+import com.alibaba.druid.util.DruidWebUtils;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.annotation.AfterReturning;
 import org.aspectj.lang.annotation.AfterThrowing;
@@ -88,7 +89,7 @@ public class AutoControllerAspect {
 	@Before("allControllerMethod()||allRestControllerMethod()")
 	public void beforeMethod(final JoinPoint joinPoint) throws InterruptedException {
 		String requestUrl = HttpRequestUtil.getRequestUrl();
-		String requestIp = HttpRequestUtil.getRemoteIp();
+		String requestIp = HttpRequestUtil.getIp();
 		final int jpsHashCode = joinPoint.getSignature().hashCode();
 		List<Object> agrs = Arrays.asList(joinPoint.getArgs());
 		logger.info("访问序号【{}】，请求IP【{}】，请求路径【{}】", jpsHashCode, requestIp, requestUrl);

@@ -4,6 +4,7 @@ import java.util.Map;
 
 import javax.servlet.Filter;
 
+import com.aloe.constants.UrlConstantsConfig;
 import org.apache.shiro.cache.ehcache.EhCacheManager;
 import org.apache.shiro.mgt.SecurityManager;
 import org.apache.shiro.spring.LifecycleBeanPostProcessor;
@@ -20,7 +21,6 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.DependsOn;
 
 import com.aloe.constants.SysConstantsConfig;
-import com.aloe.constants.UrlContstantsConfig;
 import com.aloe.filter.AuthcFormAuthenticationFilter;
 import com.aloe.filter.LoginFormAuthenticationFilter;
 import com.aloe.shiro.MyShiroFilterFactoryBean;
@@ -167,16 +167,16 @@ public class ShiroConfig {
 		shiroFilterFactoryBean.setFilters(filters);
 		shiroFilterFactoryBean.setSecurityManager(securityManager);
 		// 登录页面路径 默认路径
-		shiroFilterFactoryBean.setLoginUrl(UrlContstantsConfig.DEFAULT_VISIT_URL);
+		shiroFilterFactoryBean.setLoginUrl(UrlConstantsConfig.DEFAULT_VISIT_URL);
 		// shiroFilterFactoryBean.setSuccessUrl("/index");
-		shiroFilterFactoryBean.setUnauthorizedUrl(UrlContstantsConfig.UNAUTHORIZED_URL);
+		shiroFilterFactoryBean.setUnauthorizedUrl(UrlConstantsConfig.UNAUTHORIZED_URL);
 		// 定义shiro过滤链 Map结构 从上向下顺序执行 将 /**放在最为下边
 		// key: 第一个'/'代表的路径是相对于HttpServletRequest.getContextPath()的值。
 		// logout:配置退出过滤器,其中的具体的退出代码Shiro已经替我们实现了
 		// anon:它对应的过滤器里面是空的,什么都没做
 		// authc：该过滤器下的页面必须验证后才能访问。它是Shiro内置的一个拦截器org.apache.shiro.web.filter.authc.FormAuthenticationFilter
-		Map<String, String> filterChainDefinitionMap = UrlContstantsConfig.ANON_MAP;
-/*		filterChainDefinitionMap.put(UrlContstantsConfig.LOGIN_CHECK_URL, "login_authc");// 登录请求
+		Map<String, String> filterChainDefinitionMap = UrlConstantsConfig.ANON_MAP;
+/*		filterChainDefinitionMap.put(UrlConstantsConfig.LOGIN_CHECK_URL, "login_authc");// 登录请求
 		filterChainDefinitionMap.put("/**", "authc");*/
 		shiroFilterFactoryBean.setFilterChainDefinitionMap(filterChainDefinitionMap);
 

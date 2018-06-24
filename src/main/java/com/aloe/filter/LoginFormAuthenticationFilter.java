@@ -5,14 +5,13 @@ import javax.servlet.ServletResponse;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
+import com.aloe.constants.UrlConstantsConfig;
 import org.apache.shiro.authc.AuthenticationException;
 import org.apache.shiro.authc.AuthenticationToken;
 import org.apache.shiro.subject.Subject;
 import org.apache.shiro.web.filter.authc.FormAuthenticationFilter;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
-import com.aloe.constants.UrlContstantsConfig;
 
 /**
  * 登录操作
@@ -26,7 +25,7 @@ public class LoginFormAuthenticationFilter extends FormAuthenticationFilter {
 
 	@Override
 	public String getLoginUrl() {
-		return UrlContstantsConfig.LOGIN_CHECK_URL;
+		return UrlConstantsConfig.LOGIN_CHECK_URL;
 	}
 
 	/**

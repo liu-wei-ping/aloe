@@ -1,12 +1,9 @@
 package com.aloe.exception;
 
-import com.aloe.constants.UrlContstantsConfig;
+import com.aloe.constants.UrlConstantsConfig;
 import com.aloe.pojo.vo.ExceptionVo;
-import com.aloe.utils.ExceptionUtil;
 import com.aloe.utils.HttpRequestUtil;
 import com.aloe.utils.JSONParserUtil;
-import groovy.util.logging.Slf4j;
-import org.springframework.http.HttpRequest;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.servlet.ModelAndView;
@@ -38,7 +35,7 @@ public class DiyExceptionHandler {
             ModelAndView model = new ModelAndView();
             model.addObject("url", requestUrl);
             model.addObject("error", ex.getMessage());
-            model.setViewName(UrlContstantsConfig.DEFAULT_ERROR_PAGE);
+            model.setViewName(UrlConstantsConfig.DEFAULT_ERROR_PAGE);
             return model;
         }
     }
